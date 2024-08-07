@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapa de Chile con Leaflet y GeoJSON</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!-- Para cargar el archivo GeoJSON -->
+    <script src="assets/js/index.js"></script>
+</head>
+<body>    
+    
+
+ <div id="container">
+    <ul id="city-list"> 
+        <h2>Portafolio Albatros</h2>
+        <li data-id="city1"><a href="https://osprey-renewables.com/project/alhue/">Alhueee</a> </li>
+        <li data-id="city2"><a href="https://osprey-renewables.com/project/san-antonio/">San Antonio</a></li>
+        <li data-id="city3"><a href="https://osprey-renewables.com/project/enami/">Enami solar</a></li> 
+        <li data-id="city4"><a href="https://osprey-renewables.com/project/rengo/">Rengo Solar</a> </li>
+        <li data-id="city5"><a href="https://osprey-renewables.com/project/santa-blanca/">Santa Blanca</a> </li>
+        <li data-id="city6"><a href="https://osprey-renewables.com/project/alto-bellavista/">Alto Bellavista</a></li> 
+        <li data-id="city7"><a href="https://osprey-renewables.com/project/parral/">El Parral Solar</a></li> 
+        <li data-id="city8"><a href="https://osprey-renewables.com/project/santa-ines/">Santa Ines</a> </li>
+        <li data-id="city9"><a href="https://osprey-renewables.com/project/malloa/">Malloa</a> </li>
+        <li data-id="city10"><a href="https://osprey-renewables.com/project/plaza/">Plaza Sunlight</a> </li>
+      </ul>
+    <div id="map" ></div>
+</div>
+   
+</body>
+</html>

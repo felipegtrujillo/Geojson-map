@@ -1,0 +1,191 @@
+/* Compatibilidad con IE6 y IE7 */
+* {
+    behavior: url(path/to/boxsizing.htc); /* Asegúrate de proporcionar la ruta correcta al archivo .htc */
+    -ms-behavior: url(path/to/boxsizing.htc);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%; /* Asegúrate de que el cuerpo y el html ocupen el 100% del ancho */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total y el alto del elemento */
+}
+
+#container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total y el alto del elemento */
+}
+
+#city-list {
+    width: 50%;
+    max-width: 100%; /* Asegúrate de que el ancho máximo sea del 100% */
+}
+
+#city-list li {
+    margin: 0;
+    padding: 0;
+    width: 12vw;
+    list-style: none;
+    font-size: 1.3vw;
+    margin-bottom: 0.6vh;
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total y el alto del elemento */
+}
+
+#city-list li:hover a {
+    color: #39c3a1;
+}
+
+#map {
+    height: 100vh;
+    width: 50%;
+    max-width: 100%; /* Asegúrate de que el ancho máximo sea del 100% */
+    background-color: white;
+    border: 1px solid #d3d2c3;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total y el alto del elemento */
+}
+
+.custom-icon div {
+    width: 10px;
+    height: 10px;
+    background-color: #39c3a1;
+    border-radius: 50%;
+    border: 0.5px solid rgb(34, 165, 175);
+}
+
+.highlighted-marker {
+    width: 100px;
+    height: 10px;
+    background-color: rgb(57, 195, 161);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 0 10px 5px rgba(57, 195, 161, 0.6);
+}
+
+.highlighted-marker .line {
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #39c3a1;
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+    z-index: 500;
+    transition: width 0.7s ease;
+    -webkit-transition: width 0.7s ease;
+    -moz-transition: width 0.7s ease;
+    -ms-transition: width 0.7s ease;
+    -o-transition: width 0.7s ease;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+.highlighted-marker .info-box {
+    background: white;
+    padding: 5px;
+    border: 1px solid rgb(57, 195, 161);
+    border-radius: 20px;
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    right: calc(100% + 0px); /* Cambiado de 'left' a 'right' */
+    transform: translateY(-50%);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.5s ease, right 0.5s ease; /* Cambiado de 'left' a 'right' */
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.highlighted-marker.active .info-box {
+    opacity: 1;
+    right: calc(100% + 55px); /* Cambiado de 'left' a 'right' */
+}
+
+.leaflet-control-attribution {
+    display: none !important;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 767px) {
+    #container {
+        flex-direction: column;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        width: 100%; /* Asegúrate de que el contenedor ocupe el 100% del ancho */
+    }
+
+    #city-list {
+        width: 100%;
+        text-align: center;
+    }
+
+    #city-list h2 {
+        text-align: center;
+    }
+
+    #city-list li {
+        width: 100%;
+        font-size: 4vw;
+        margin-bottom: 1vh;
+    }
+
+    #map {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .highlighted-marker .info-box {
+        font-size: 10px;
+        padding: 3px;
+    }
+}
+
+/* Media Query para tabletas */
+@media (min-width: 768px) and (max-width: 1024px) {
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centrar horizontalmente */
+        justify-content: center; /* Centrar verticalmente */
+        height: auto;
+        width: 100%; /* Asegúrate de que el contenedor ocupe el 100% del ancho */
+    }
+
+    #city-list {
+        width: 100%;
+        text-align: center; /* Centrar los elementos de la lista */
+    }
+
+    #city-list li {
+        width: 100%;
+        font-size: 2vw;
+        margin-bottom: 1vh;
+        list-style: none; /* Quita el punto de todos los elementos de la lista */
+    }
+
+    #map {
+        width: 100%;
+        height: 60vh;
+    }
+
+    .highlighted-marker .info-box {
+        font-size: 11px;
+        padding: 4px;
+    }
+}
